@@ -1,34 +1,33 @@
-// LandingDetailsPage.jsx
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { landingService } from '../services/landingService.js'
+import { AspectRatio, Box, Spinner } from '@chakra-ui/react'
+import Article from '../cmps/Article.jsx'
+import { YouTubeVideo } from '../cmps/YouTubeVideo.jsx'
 
 export const LandingDetailsPage = () => {
-  const [landingDetails, setLandingDetails] = useState(null)
+  const [landing, setLanding] = useState(null)
   const { id } = useParams()
 
   useEffect(() => {
-    const fetchLandingDetails = async () => {
-      try {
-        const data = await landingService.getById(id)
-        setLandingDetails(data)
-      } catch (error) {
-        console.error('Error loading landing details:', error)
-      }
-    }
-
-    fetchLandingDetails()
+    loadLanding()
   }, [id])
 
-  if (!landingDetails) {
-    return <p>Loading...</p>
+  const loadLanding = async () => {
+    try {
+      const data = await landingService.getById(id)
+      setLanding(data)
+    } catch (error) {
+      console.error('Error loading landing details:', error)
+    }
   }
 
-  return (
-    <div>
-      <h1>{landingDetails.name}</h1>
-      {/* ... display other details */}
-    </div>
-  )
+
+  if (!landing) return <Spinner thickness='4px' m='5'
+    speed='0.65s' emptyColor='gray.200' color='blue.500' size='xl' />
+  return <Article landing={landing} />
+
+
+
 }
 

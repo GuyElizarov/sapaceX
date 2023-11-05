@@ -10,7 +10,11 @@ async function getLandings() {
 }
 
 async function getById(landingId) {
-    return await httpService.get(`landing/getPopById/${landingId}`)
+    return httpService.get(`/launches/${landingId}`, null, true)
+        .then(launch => launch)
+        .catch(error => {
+            console.error(`Error fetching SpaceX launch with ID ${landingId}:`, error);
+        });
 }
 
 // async function remove(landingId) {
@@ -28,21 +32,10 @@ async function getById(landingId) {
 // }
 
 
-// function getEmptyPop() {
-//     return {
-//         title: "",
-//         imageName: ""
-//     }
-
-// }
-
-
 
 export const landingService = {
     getLandings,
     getById,
     // remove,
     // save,
-    // getEmptyPop,
-
 }
