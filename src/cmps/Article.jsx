@@ -88,12 +88,12 @@ const ArticleList = ({ landing }) => {
                     marginTop={{ base: '3', sm: '0' }}>
                     <HStack spacing={4} variant='solid'  size={'lg'}>
 
-                        <Link href={landing.links.article} isExternal > <Tag>Article</Tag></Link>
+                        <Link href={landing.links.article} isExternal > <Tag >Article</Tag></Link>
                         <Link href={landing.links.wikipedia} isExternal > <Tag>Wikipedia</Tag></Link>
                     </HStack>
                     <Heading marginTop="1">
                         <Text textDecoration="none" _hover={{ textDecoration: 'none' }}>
-                            Blog article title
+                        Details
                         </Text>
                     </Heading>
                     <Text
