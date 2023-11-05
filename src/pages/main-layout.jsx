@@ -8,11 +8,11 @@ export const MainLayout = () => {
     return <Flex flexDir={'column'} minHeight={'100vh'} >
 
         <Flex className="header" h={'120px'} boxShadow={'0 4px 2px -2px #333'} alignItems={'center'} width={'100%'} p={'35px'}>
-            <Flex className="btns" gap={'35px'} >
+            {/* <Flex className="btns" gap={'35px'} >
                 <Button colorScheme='green' onClick={() => navigate('/')}>Home</Button>
                 <Button colorScheme='green' onClick={() => navigate('/about')}>About</Button>
                 <Button colorScheme='green' onClick={() => navigate('/login')} >Login</Button>
-            </Flex>
+            </Flex> */}
             <Flex margin={"auto"} >
                 <Heading >SpaceX</Heading>
             </Flex>

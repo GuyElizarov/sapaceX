@@ -3,9 +3,7 @@ import { httpService } from './httpService'
 
 async function getLandings() {
     return httpService.get('/launches', null, true) 
-        .then(launches => {
-            console.log('SpaceX Launches:', launches);
-        })
+        .then(launches => launches)
         .catch(error => {
             console.error('Error fetching SpaceX launches:', error);
         });
