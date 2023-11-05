@@ -3,6 +3,7 @@ import { Home } from './pages/home'
 import { Login } from './pages/login'
 import { MainLayout } from './pages/main-layout.jsx'
 import { About } from './pages/about.jsx'
+import { LandingDetailsPage } from "./pages/landingDetails.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -20,8 +21,8 @@ export const router = createBrowserRouter([
     ]
   },
   {
-    path: "/login",
-    element: <Login />,
+    path: "/details/:id",
+    element: <LandingDetailsPage />,
   },
 
 ])

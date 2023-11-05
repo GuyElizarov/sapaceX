@@ -1,4 +1,4 @@
-import { Center, Flex, Box} from '@chakra-ui/react'
+import { Center, Flex, Box } from '@chakra-ui/react'
 import { landingService } from '../services/landingService.js'
 import { useEffect, useState } from 'react'
 import { Spinner } from '@chakra-ui/react'
@@ -27,7 +27,8 @@ export const Home = () => {
         <Center flexWrap={'wrap'}>
 
             {landings.map(landing => (
-                <Card key={landing.id} imgUrl={landing.links?.patch?.small} launchName={landing.name} landingSuccess={landing.success} details={landing.details}/>
+                <Card key={landing.id} imgUrl={landing.links?.patch?.small} launchName={landing.name} landingSuccess={landing.success} details={landing.details} id={landing.id}
+                />
             ))}
         </Center >
     );

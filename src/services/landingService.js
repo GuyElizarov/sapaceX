@@ -9,9 +9,9 @@ async function getLandings() {
         });
 }
 
-// async function getById(landingId) {
-//     return await httpService.get(`landing/getPopById/${landingId}`)
-// }
+async function getById(landingId) {
+    return await httpService.get(`landing/getPopById/${landingId}`)
+}
 
 // async function remove(landingId) {
 //     return httpService.delete(`landing/${landingId}`)
@@ -40,7 +40,7 @@ async function getLandings() {
 
 export const landingService = {
     getLandings,
-    // getById,
+    getById,
     // remove,
     // save,
     // getEmptyPop,

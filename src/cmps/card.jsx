@@ -12,9 +12,13 @@ import {
     HStack,
 } from '@chakra-ui/react'
 import { BsArrowUpRight } from 'react-icons/bs'
+import { useNavigate } from 'react-router-dom'
 
-export default function PostWithLike({ imgUrl, launchName, landingSuccess, details }) {
-
+export default function PostWithLike({ id,imgUrl, launchName, landingSuccess, details }) {
+const navigate = useNavigate()
+const navigateToDetails = () => {
+    navigate(`/details/${id}`);
+  };
     return (
         <Center py={6}>
             <Box
@@ -51,7 +55,7 @@ export default function PostWithLike({ imgUrl, launchName, landingSuccess, detai
                         {details}
                     </Text>
                 </Box>
-                <HStack borderTop={'1px'} color="black">
+                <HStack borderTop={'1px'} color="black" onClick={navigateToDetails}>
                     <Flex
                         p={4}
                         alignItems="center"
