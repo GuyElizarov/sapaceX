@@ -1,13 +1,18 @@
 
 import Axios from 'axios'
 
-// Note: BASE_URL is no longer needed unless you are using it for other endpoints
+const BASE_URL = process.env.NODE_ENV === 'production'
+    ? '/api/'
+    : 'http://localhost:3000/'
+
+const SPACEX_BASE_URL = 'https://api.spacexdata.com/v4';
 
 var axios = Axios.create();
 
 export const httpService = {
     get(endpoint, data, external = false) {
-        const url = external ? endpoint : `${BASE_URL}${endpoint}`;
+        const baseUrl = external ? SPACEX_BASE_URL : BASE_URL;
+        const url = `${baseUrl}${endpoint}`;
         return ajax(url, 'GET', data);
     },
     post(endpoint, data) {

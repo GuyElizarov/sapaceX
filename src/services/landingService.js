@@ -1,10 +1,8 @@
 import { httpService } from './httpService'
 
 
-const spacexLaunchesUrl = 'https://api.spacexdata.com/v4/launches'
-
 async function getLandings() {
-    return httpService.get(spacexLaunchesUrl, null, true)
+    return httpService.get('/launches', null, true) 
         .then(launches => {
             console.log('SpaceX Launches:', launches);
         })
